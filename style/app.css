@@ -184,13 +184,14 @@ a:hover {
 .circle {
     position: absolute;
     border-radius: 50%;
-    background: #3b3b3b;
+    border: 3px dashed rgba(255, 255, 255, 0.8);
     width: 157px;
     height: 157px;
 }
 
 .main {
-
+    width: 240px;
+    height: 240px;
 }
 
 .circle-1 {
