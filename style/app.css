@@ -33,34 +33,6 @@ a:hover {
     opacity: 0.8;
 }
 
-#header,
-#main,
-#footer {
-    flex-shrink: 0;
-}
-
-#main,
-#footer {
-    position: relative;
-}
-
-#main {
-    flex-grow: 1;
-}
-
-#main {
-    background: #ffffff;
-    color: #2b3742;
-    padding: 2rem;
-}
-
-#main.background-flowers {
-    background-color: #454444;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
 /* nav toggle */
 .nav-toggle {
     cursor: pointer;
@@ -124,8 +96,9 @@ a:hover {
     -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg);
 }
+/*nav toogle end*/
 
-/* nav */
+/* nav start*/
 .nav {
     background: #3E3E3E;
     color: #C1C1C1;
@@ -169,102 +142,12 @@ a:hover {
 .nav-item:first-child {
     margin-top: 0px;
 }
-
+/*nav end*/
 /*header end*/
-/*map start*/
-.map-wrapper {
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 100px;
-    position: relative;
-    height: 600px;
-    width: 900px;
+/*portfolio start*/
+
+.item-media {
+    padding: 0 20px 0 100px;
 }
 
-.line {
-    width: 200px;
-    height: 190px;
-    border-bottom: 3px dashed silver;
-}
-
-.line-1 {
-    margin-left: 193px;
-    transform: rotate(30deg);
-
-}
-.line-2 {
-    margin-left: 58px;
-    transform: rotate(-30deg);
-
-}
-.line-3 {
-    margin-left: 130px;
-    margin-bottom: 50px;
-    transform: rotate(30deg);
-
-}
-.line-4 {
-    margin-left: 193px;
-    transform: rotate(30deg);
-
-}
-
-.circle {
-    position: absolute;
-    border-radius: 50%;
-    border: 3px dashed rgba(255, 255, 255, 0.8);
-    width: 157px;
-    height: 157px;
-}
-
-.circle-wrapper-1 {
-    left: 0;
-    top: 0;
-}
-.circle-wrapper-2 {
-    right: 0;
-    top: 0;
-}
-.circle-wrapper-3 {
-    right: 0;
-    bottom: 0;
-}
-.circle-wrapper-4 {
-    left: 0;
-    bottom: 0;
-}
-.circle-wrapper {
-
-    width: 50%;
-    height: 50%;
-    position: absolute;
-}
-
-.main {
-    width: 240px;
-    height: 240px;
-}
-
-.circle-1 {
-    top: 0;
-    left: 0;
-}
-
-.circle-2 {
-    top: 0;
-    right: 0;
-}
-
-.circle-3 {
-    bottom: 0;
-    right: 0;
-}
-
-.circle-4 {
-    bottom: 0;
-    left: 0;
-}
-
-/*map end*/
+/*portfolio end*/
