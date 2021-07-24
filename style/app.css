@@ -1,15 +1,17 @@
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
+@font-face{font-family: 'Futura PT Bold';  src: url("../fonts/FuturaPT-Bold.woff") format("truetype");  font-weight: normal;  font-style: normal;}
+@font-face{font-family: 'Futura PT Medium';  src: url("../fonts/FuturaPT-Medium.woff") format("truetype");  font-weight: normal;  font-style: normal;}
+@font-face{font-family: 'Futura PT Light';  src: url("../fonts/FuturaPT-Light.woff") format("truetype");  font-weight: normal;  font-style: normal;}
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Futura PT Medium', sans-serif;
 }
 
 html {
-    color: #C1C1C1;
+    color: #333;
     background: #242424;
-    font: normal 10px/1.42857 "Source Sans Pro", Helvetica, Arial, sans-serif;
     min-height: 100%;
 }
 
@@ -36,11 +38,11 @@ a:hover {
 /* nav toggle */
 .nav-toggle {
     cursor: pointer;
-    height: 2rem;
+    height: 20px;
     right: 5rem;
     position: fixed;
     top: 6rem;
-    width: 3.6rem;
+    width: 20px;
     transition: .5s;
     z-index: 2;
 }
@@ -59,9 +61,10 @@ a:hover {
     transform: translateY(-50%);
     background: #ffffff;
     content: "";
-    height: 0.4rem;
+    height: 2px;
     transition: all 0.5s;
-    width: 100%;
+    width: 20px;
+    border-radius: 5px;
 }
 
 .nav-toggle .nav-toggle-bar {
@@ -69,11 +72,11 @@ a:hover {
 }
 
 .nav-toggle .nav-toggle-bar::after {
-    margin-top: 0.8rem;
+    margin-top: 5px;
 }
 
 .nav-toggle .nav-toggle-bar::before {
-    margin-top: -0.8rem;
+    margin-top: -5px;
 }
 
 .nav-toggle.expanded .nav-toggle-bar {
@@ -146,8 +149,82 @@ a:hover {
 /*header end*/
 /*portfolio start*/
 
-.item-media {
-    padding: 0 20px 0 100px;
+.grid-portfolio {
+    padding-top: 40px;
+    display: grid;
+    width: 100%;
+    max-width: 1580px;
+    margin: 0 auto;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 60px;
 }
+
+.grid-portfolio-item{
+    display: grid;
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 40px;
+}
+
+.item-portfolio {
+    background: #FFFFFF;
+    border-radius: 10px;
+    padding: 30px 30px 40px 30px;
+}
+.item-portfolio-header{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0;
+    min-height: 55px;
+}
+.portfolio-header-title{
+    color: #595959;
+    font-family: 'Futura PT Light', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 23px;
+    margin-bottom: 0;
+
+}
+.portfolio-header-badge{
+    -webkit-text-stroke: 1px rgb(1, 181, 227);
+    font-family: 'Futura PT Bold', sans-serif;
+    font-size: 36px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+
+.portfolio-text-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+
+.portfolio-text-title{
+    font-size: 30px;
+    padding-bottom: 10px;
+}
+.portfolio-text{
+    font-size: 14px;
+    line-height: 22.4px;
+    color: rgba(51, 51, 51, 1);
+}
+
+.portfolio-geo{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.portfolio-city{
+    font-size: 14px;
+    text-transform: uppercase;
+    margin: 0  7px 0 17px;
+}
+
 
 /*portfolio end*/
