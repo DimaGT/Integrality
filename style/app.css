@@ -1,6 +1,23 @@
-@font-face{font-family: 'Futura PT Bold';  src: url("../fonts/FuturaPT-Bold.woff") format("truetype");  font-weight: normal;  font-style: normal;}
-@font-face{font-family: 'Futura PT Medium';  src: url("../fonts/FuturaPT-Medium.woff") format("truetype");  font-weight: normal;  font-style: normal;}
-@font-face{font-family: 'Futura PT Light';  src: url("../fonts/FuturaPT-Light.woff") format("truetype");  font-weight: normal;  font-style: normal;}
+@font-face {
+    font-family: 'Futura PT Bold';
+    src: url("../fonts/FuturaPT-Bold.woff") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Futura PT Medium';
+    src: url("../fonts/FuturaPT-Medium.woff") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Futura PT Light';
+    src: url("../fonts/FuturaPT-Light.woff") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
 
 * {
     box-sizing: border-box;
@@ -30,9 +47,19 @@ a {
     text-decoration: none;
     transition: .5s;
 }
+ul{
+    list-style: none;
+}
 
+ul li {
+    display: inline-block;
+}
 a:hover {
     opacity: 0.8;
+}
+
+button {
+    border: none;
 }
 
 /* nav toggle */
@@ -41,7 +68,7 @@ a:hover {
     height: 20px;
     right: 5rem;
     position: fixed;
-    top: 6rem;
+    top: 65px;
     width: 20px;
     transition: .5s;
     z-index: 2;
@@ -99,8 +126,8 @@ a:hover {
     -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg);
 }
-/*nav toogle end*/
 
+/*nav toogle end*/
 /* nav start*/
 .nav {
     background: #3E3E3E;
@@ -120,8 +147,22 @@ a:hover {
     z-index: 1;
 }
 
+header {
+    max-width: 1740px;
+    height: 160px;
+    margin-bottom: 60px;
+}
+
+.title {
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    font-size: 50px;
+    margin-bottom: 50px;
+}
+
 .nav-logo {
-    margin: 40px 0px 0px 90px;
+    margin: 40px 0px;
 }
 
 .nav-logo img {
@@ -145,21 +186,83 @@ a:hover {
 .nav-item:first-child {
     margin-top: 0px;
 }
+
 /*nav end*/
 /*header end*/
 /*portfolio start*/
+/*header portfolio start*/
+.grid-portfolio-header {
+    display: grid;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    grid-template-columns: repeat(2, 1fr);
+    box-shadow: -4px 3px 14px rgba(0, 0, 0, 0.05), 7px 8px 14px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    background: #FFFFFF;
+    padding: 40px 110px;
+}
 
+.portfolio-header-part {
+    display: flex;
+    align-items: center;
+}
+
+.selectpicker-wrapper {
+    display: flex;
+}
+
+.selectpicker {
+    font-family: "Futura PT Light", sans-serif;
+    background: rgba(37, 37, 37, 1);
+    color: #FFFFFF;
+    outline: none;
+    border-radius: 0;
+    width: 350px;
+    margin-left: 35px;
+    min-height: 37px;
+
+}
+
+.selectpicker option {
+    font-family: "Futura PT Light", sans-serif;
+    background: rgba(56, 56, 56, 1);
+    color: rgba(193, 193, 193, 1);
+    text-transform: uppercase;
+    font-size: 13px;
+    padding: 9px 20px;
+}
+
+.button {
+    background: rgba(1, 169, 212, 1);
+    padding: 12px 40px;
+    cursor: pointer;
+    text-transform: uppercase;
+    border-radius: 5px;
+    color: #FFFFFF;
+    transition: .3s;
+}
+
+.button:hover {
+    background: rgb(2, 137, 172);
+}
+
+.button:active {
+    background: rgb(46, 142, 167);
+}
+
+/*header portfolio   end*/
 .grid-portfolio {
     padding-top: 40px;
     display: grid;
     width: 100%;
-    max-width: 1580px;
+    max-width: 1640px;
     margin: 0 auto;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 60px;
 }
 
-.grid-portfolio-item{
+.grid-portfolio-item {
     display: grid;
     width: 100%;
     max-width: 750px;
@@ -173,13 +276,15 @@ a:hover {
     border-radius: 10px;
     padding: 30px 30px 40px 30px;
 }
-.item-portfolio-header{
+
+.item-portfolio-header {
     display: flex;
     justify-content: space-between;
     padding-bottom: 0;
     min-height: 55px;
 }
-.portfolio-header-title{
+
+.portfolio-header-title {
     color: #595959;
     font-family: 'Futura PT Light', sans-serif;
     font-weight: 400;
@@ -188,7 +293,8 @@ a:hover {
     margin-bottom: 0;
 
 }
-.portfolio-header-badge{
+
+.portfolio-header-badge {
     -webkit-text-stroke: 1px rgb(1, 181, 227);
     font-family: 'Futura PT Bold', sans-serif;
     font-size: 36px;
@@ -197,34 +303,64 @@ a:hover {
     margin-bottom: 0;
 }
 
-.portfolio-text-wrapper{
+.portfolio-text-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding-top: 20px;
 }
 
-.portfolio-text-title{
+.portfolio-text-title {
     font-size: 30px;
     padding-bottom: 10px;
 }
 
-.portfolio-text{
+.portfolio-text {
     font-size: 14px;
     line-height: 22.4px;
     color: rgba(51, 51, 51, 1);
 }
 
-.portfolio-geo{
+.portfolio-geo {
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
 
-.portfolio-city{
+.portfolio-city {
     font-size: 14px;
     text-transform: uppercase;
-    margin: 0  7px 0 17px;
+    margin: 0 7px 0 17px;
 
 }
+/*pagination start*/
+.pagination-items{
+    display: flex;
+    justify-content: center;
+    margin: 80px 0 140px 0;
+}
+
+.pagination-item{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    background: #fff;
+    margin: 0 0 0 40px;
+    transition: .3s;
+}
+
+.pagination-item:first-child{
+    margin: 0;
+}
+
+
+.active{
+    background: rgba(1, 169, 212, 1);
+    color: #fff;
+}
+/*pagination end*/
 /*portfolio end*/
