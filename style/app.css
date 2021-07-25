@@ -47,13 +47,7 @@ a {
     text-decoration: none;
     transition: .5s;
 }
-ul{
-    list-style: none;
-}
 
-ul li {
-    display: inline-block;
-}
 a:hover {
     opacity: 0.8;
 }
@@ -196,7 +190,7 @@ header {
     width: 100%;
     max-width: 1440px;
     margin: 0 auto;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 5fr 6fr;
     box-shadow: -4px 3px 14px rgba(0, 0, 0, 0.05), 7px 8px 14px rgba(0, 0, 0, 0.05);
     border-radius: 10px;
     background: #FFFFFF;
@@ -209,28 +203,101 @@ header {
 }
 
 .selectpicker-wrapper {
+
     display: flex;
+    align-items: center;
+    max-width: 420px;
+    width: 100%;
+
 }
 
-.selectpicker {
+.select-title{
+    padding-right: 35px;
+    padding-left: 10px
+}
+/* The container must be positioned relative: */
+.custom-select {
+    position: relative;
+    max-width: 320px;
+    width: 100%;
+}
+
+.custom-select select {
+    display: none; /*hide original SELECT element: */
+}
+
+.select-selected {
     font-family: "Futura PT Light", sans-serif;
     background: rgba(37, 37, 37, 1);
     color: #FFFFFF;
     outline: none;
     border-radius: 0;
-    width: 350px;
-    margin-left: 35px;
+    width: 100%;
     min-height: 37px;
+}
+
+/* Style the arrow inside the select element: */
+.select-selected:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #fff transparent transparent transparent;
+}
+
+/* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active:after {
+    border-color: transparent transparent #fff transparent;
+    top: 7px;
+}
+
+/* style the items (options), including the selected item: */
+.select-items div, .select-selected {
+    color: #ffffff;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    font-family: "Futura PT Light", sans-serif;
+    cursor: pointer;
+    transition: .3s;
 
 }
 
-.selectpicker option {
-    font-family: "Futura PT Light", sans-serif;
+/* Style items (options): */
+.select-items {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
     background: rgba(56, 56, 56, 1);
     color: rgba(193, 193, 193, 1);
     text-transform: uppercase;
     font-size: 13px;
-    padding: 9px 20px;
+    animation: .5s visible;
+
+}
+
+/* Hide the items when the select box is closed: */
+.select-hide {
+    display: none;
+}
+
+@keyframes visible {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+.select-items div:hover, .same-as-selected {
+    background-color: rgba(0, 0, 0, 0.15);
 }
 
 .button {
@@ -256,7 +323,7 @@ header {
     padding-top: 40px;
     display: grid;
     width: 100%;
-    max-width: 1640px;
+    max-width: 1580px;
     margin: 0 auto;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 60px;
@@ -267,14 +334,14 @@ header {
     width: 100%;
     max-width: 750px;
     margin: 0 auto;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 5fr 3fr;
     grid-gap: 40px;
 }
 
 .item-portfolio {
     background: #FFFFFF;
     border-radius: 10px;
-    padding: 30px 30px 40px 30px;
+    padding: 35px 35px 45px 35px;
 }
 
 .item-portfolio-header {
@@ -282,6 +349,13 @@ header {
     justify-content: space-between;
     padding-bottom: 0;
     min-height: 55px;
+}
+
+.portfolio-img-wrapper img {
+    height: auto;
+    width: 100%;
+    /* еще больше контроля с max-width */
+    max-width: 720px;
 }
 
 .portfolio-header-title {
@@ -319,6 +393,8 @@ header {
     font-size: 14px;
     line-height: 22.4px;
     color: rgba(51, 51, 51, 1);
+    padding-right: 15px;
+
 }
 
 .portfolio-geo {
@@ -333,14 +409,16 @@ header {
     margin: 0 7px 0 17px;
 
 }
+
 /*pagination start*/
-.pagination-items{
+.pagination-items {
     display: flex;
     justify-content: center;
     margin: 80px 0 140px 0;
+    list-style: none;
 }
 
-.pagination-item{
+.pagination-item {
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -353,14 +431,32 @@ header {
     transition: .3s;
 }
 
-.pagination-item:first-child{
+.pagination-item:first-child {
     margin: 0;
 }
 
 
-.active{
+.active {
     background: rgba(1, 169, 212, 1);
     color: #fff;
 }
+
 /*pagination end*/
 /*portfolio end*/
+@media only screen and (max-width: 1371px) {
+
+}
+@media only screen and (max-width: 1224px) {
+
+}
+
+@media only screen and (max-width: 1024px) {
+}
+
+@media only screen and (max-width: 767px) {
+}
+
+@media only screen and (max-width: 320px) {
+}
+
+
