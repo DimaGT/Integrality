@@ -143,8 +143,7 @@ button {
 
 header {
     max-width: 1740px;
-    height: 160px;
-    margin-bottom: 60px;
+    height: 210px;
 }
 
 .title {
@@ -156,11 +155,12 @@ header {
 }
 
 .nav-logo {
+    max-width: 150px;
     margin: 40px 0px;
 }
 
 .nav-logo img {
-    width: 150px;
+    width: 100%;
 }
 
 .nav.expanded {
@@ -194,12 +194,17 @@ header {
     box-shadow: -4px 3px 14px rgba(0, 0, 0, 0.05), 7px 8px 14px rgba(0, 0, 0, 0.05);
     border-radius: 10px;
     background: #FFFFFF;
-    padding: 40px 110px;
+    padding: 40px 100px;
 }
 
 .portfolio-header-part {
     display: flex;
     align-items: center;
+}
+
+.portfolio-header-part-between {
+    display: flex;
+    justify-content: space-between;
 }
 
 .selectpicker-wrapper {
@@ -211,10 +216,11 @@ header {
 
 }
 
-.select-title{
+.select-title {
     padding-right: 35px;
     padding-left: 10px
 }
+
 /* The container must be positioned relative: */
 .custom-select {
     position: relative;
@@ -300,9 +306,18 @@ header {
     background-color: rgba(0, 0, 0, 0.15);
 }
 
+.button-wrapper {
+    position: relative;
+    max-width: 100%;
+    width: 135px;
+}
+
 .button {
+    width: 100%;
+    text-align: center;
     background: rgba(1, 169, 212, 1);
-    padding: 12px 40px;
+    padding: 12px 0;
+
     cursor: pointer;
     text-transform: uppercase;
     border-radius: 5px;
@@ -416,6 +431,7 @@ header {
     justify-content: center;
     margin: 80px 0 140px 0;
     list-style: none;
+    padding-left: 0;
 }
 
 .pagination-item {
@@ -446,17 +462,84 @@ header {
 @media only screen and (max-width: 1371px) {
 
 }
-@media only screen and (max-width: 1224px) {
 
+@media only screen and (max-width: 1224px) {
+    .grid-portfolio-header {
+        padding: 30px 50px;
+    }
+
+    .button {
+        margin-left: 10px;
+    }
+
+    .grid-portfolio-item {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
 
 @media only screen and (max-width: 1024px) {
+    .grid-portfolio-header {
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio-header-part {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+
+    .selectpicker-wrapper {
+        flex-direction: column;
+    }
+    .custom-select {
+        max-width: 420px;
+    }
+    .select-title {
+        padding: 0;
+        margin: 15px 0;
+    }
+
+    .button {
+        margin-top: 30px;
+        margin-left: 0;
+    }
 }
 
 @media only screen and (max-width: 767px) {
+    header{
+        height: 280px;
+    }
+    .grid-portfolio {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .button-wrapper {
+        width: 100%;
+    }
+
+}
+
+@media only screen and (max-width: 651px) {
+    .grid-portfolio-item {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media only screen and (max-width: 445px) {
+    .portfolio-header-part {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .selectpicker-wrapper{
+        align-items: flex-start;
+    }
+
 }
 
 @media only screen and (max-width: 320px) {
+
+
 }
 
 
