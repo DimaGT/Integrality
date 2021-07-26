@@ -102,3 +102,12 @@ function closeAllSelect(elmnt) {
 then close all select boxes: */
 document.addEventListener("click", closeAllSelect);
 //select end
+//control start
+let controlBtn = document.getElementsByClassName("header-control");
+let controlForm = document.getElementsByClassName("grid-portfolio-header");
+control.onclick = function() {
+	portfolio_header.classList.toggle("visible");
+	portfolio_header.classList.toggle("none");
+	control.classList.toggle('white')
+	control.classList.toggle('cyan')
+};

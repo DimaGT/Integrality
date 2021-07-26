@@ -25,12 +25,14 @@
     padding: 0;
     font-family: 'Futura PT Medium', sans-serif;
 }
-#particles-js{
+
+#particles-js {
     min-height: 100vh;
     min-width: 100%;
     position: fixed !important;
     z-index: -1;
 }
+
 html {
     color: #333;
     background: #242424;
@@ -41,7 +43,7 @@ html {
 body {
     overflow-x: hidden;
     background: none;
-    background-attachment:fixed;
+    background-attachment: fixed;
     color: inherit;
     display: flex;
     flex-direction: column;
@@ -64,6 +66,13 @@ button {
     border: none;
 }
 
+
+.white{
+    color: #fff !important;
+}
+.cyan{
+    color: rgba(1, 169, 212, 1) !important;
+}
 /* nav toggle */
 .nav-toggle {
     cursor: pointer;
@@ -90,10 +99,10 @@ button {
     transform: translateY(-50%);
     background: #ffffff;
     content: "";
-    height: 2px;
+    height: 3px;
     transition: all 0.5s;
-    width: 20px;
-    border-radius: 5px;
+    width: 35px;
+    border-radius: 50px;
 }
 
 .nav-toggle .nav-toggle-bar {
@@ -101,11 +110,11 @@ button {
 }
 
 .nav-toggle .nav-toggle-bar::after {
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
 .nav-toggle .nav-toggle-bar::before {
-    margin-top: -5px;
+    margin-top: -10px;
 }
 
 .nav-toggle.expanded .nav-toggle-bar {
@@ -184,7 +193,8 @@ header {
 .nav-item {
     margin-top: 65px;
 }
-.nav-item a{
+
+.nav-item a {
     margin-top: 65px;
     font-size: 24px;
     font-family: "Futura PT Light", sans-serif;
@@ -282,8 +292,8 @@ header {
     font-family: "Futura PT Light", sans-serif;
     cursor: pointer;
     transition: .3s;
-
 }
+
 
 /* Style items (options): */
 .select-items {
@@ -296,8 +306,7 @@ header {
     color: rgba(193, 193, 193, 1);
     text-transform: uppercase;
     font-size: 13px;
-    animation: .5s visible;
-
+    animation: .7s visible;
 }
 
 /* Hide the items when the select box is closed: */
@@ -307,11 +316,14 @@ header {
 
 @keyframes visible {
     from {
-        opacity: 0
+        opacity: 0;
+        padding-left: 30%;
+
     }
 
     to {
-        opacity: 1
+        opacity: 1;
+        padding-left: 0;
     }
 }
 
@@ -365,6 +377,17 @@ header {
     grid-template-columns: 5fr 3fr;
     grid-gap: 40px;
 }
+
+.header-control {
+    display: none;
+    position: absolute;
+    margin-bottom: 59px;
+    right: 15px;
+    font-size: 32px;
+    color: #FFFFFF;
+    transition: .5s;
+}
+
 
 .item-portfolio {
     background: #FFFFFF;
@@ -481,6 +504,7 @@ header {
         padding: 30px 50px;
     }
 
+
     .button {
         margin-left: 10px;
     }
@@ -495,8 +519,40 @@ header {
         right: 30px;
     }
 
+    .grid-portfolio {
+        grid-gap: 30px;
+    }
+    .pagination-items{
+        margin: 30px 0 30px 0;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+
+    .visible{
+        display: block;
+    }
+    .none{
+        display: none !important;
+    }
     .grid-portfolio-header {
         grid-template-columns: 1fr;
+        animation: 1s headerSelect;
+    }
+
+    @keyframes headerSelect {
+        from{
+            opacity: 0;
+        }
+        to{
+            opacity: 1;
+        }
+    }
+
+    .header-control {
+        display: block;
+        margin-bottom: 60px;
+
     }
 
     .portfolio-header-part {
@@ -504,13 +560,27 @@ header {
         justify-content: center;
     }
 
+    .item-portfolio-header {
+        align-items: center;
+        padding: 0 0 20px;
+    }
+
+    .item-portfolio {
+        padding-top: 15px;
+    }
 
     .selectpicker-wrapper {
         flex-direction: column;
     }
+
+    .select-items {
+        position: relative;
+    }
+
     .custom-select {
         max-width: 420px;
     }
+
     .select-title {
         padding: 0;
         margin: 15px 0;
@@ -520,12 +590,12 @@ header {
         margin-top: 30px;
         margin-left: 0;
     }
-}
 
-@media only screen and (max-width: 767px) {
-    header{
+    header {
         height: 280px;
     }
+
+
     .grid-portfolio {
         grid-template-columns: repeat(1, 1fr);
         grid-gap: 30px;
@@ -534,6 +604,16 @@ header {
     .button-wrapper {
         width: 100%;
     }
+
+    .portfolio-img-wrapper img {
+        max-width: 500px;
+    }
+
+    .portfolio-img-wrapper {
+        margin: 0 auto;
+        max-width: 500px;
+    }
+
 
 }
 
@@ -544,16 +624,59 @@ header {
 }
 
 @media only screen and (max-width: 445px) {
+    .nav{
+        width: 100%;
+        right: -100%;
+    }
+    .grid-portfolio {
+        padding-top: 30px;
+    }
+
     .portfolio-header-part {
         flex-direction: column;
         align-items: flex-start;
     }
 
-    .selectpicker-wrapper{
+    .item-portfolio{
+        padding: 20px;
+    }
+    .portfolio-text{
+        height: 57px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        -ms-line-clamp: 3;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        font-size: 15px;
+        line-height: 19px;
+    }
+
+    .portfolio-text-wrapper{
+        padding-top: 0;
+    }
+    .portfolio-text-title{
+        font-size: 26px;
+    }
+    .selectpicker-wrapper {
         align-items: flex-start;
     }
-    .select-items{
-        position: relative;
+
+    .title {
+        font-size: 36px;
+    }
+
+    .portfolio-header-badge {
+        font-size: 34px;
+    }
+
+    .portfolio-header-title{
+        font-size: 22px;
+    }
+
+    .header-control {
+        margin-bottom: 52px;
     }
 
 }

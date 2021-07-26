@@ -6,6 +6,7 @@
     <title>Hamburger menu with CSS animations and pure JavaScript</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="style/app.css">
 
 </head>
@@ -22,10 +23,11 @@
                 <img src="image/logo.png" alt="">
             </div>
         </div>
-        <div class="col-lg-8 col-md-6 d-flex align-items-end justify-content-center">
+        <div class="col-lg-8 col-md-6 d-flex align-items-end justify-content-center title-wrapper">
             <h1 class="title">
                 portfolio
             </h1>
+            <span id="control" class="header-control white"><i class="far fa-list-alt"></i></span>
         </div>
         <div class="col-lg-2  col-md-3">
             <div class="nav-toggle">
@@ -47,7 +49,7 @@
 <!--portfolio start-->
 <main class="portfolio">
     <div class="container-fluid">
-        <div class="grid-portfolio-header">
+        <div id='portfolio_header' class="grid-portfolio-header none">
             <div class="portfolio-header-part">
 
                 <h5 class="select-title">Categories: </h5>
