@@ -528,6 +528,7 @@ header {
     }
     .grid-portfolio {
         grid-template-columns: repeat(1, 1fr);
+        grid-gap: 30px;
     }
 
     .button-wrapper {
@@ -550,6 +551,9 @@ header {
 
     .selectpicker-wrapper{
         align-items: flex-start;
+    }
+    .select-items{
+        position: relative;
     }
 
 }
