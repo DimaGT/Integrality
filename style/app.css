@@ -25,22 +25,21 @@
     padding: 0;
     font-family: 'Futura PT Medium', sans-serif;
 }
-
+#particles{
+    position: fixed !important;
+    z-index: -1;
+}
 html {
     color: #333;
     background: #242424;
     min-height: 100%;
 }
-.bg-wrapper{
-    position: absolute;
-    margin: 0 auto;
-    overflow:  hidden;
-}
+
 
 body {
-    overflow:  hidden;
-
+    overflow-x: hidden;
     background: none;
+    background-attachment:fixed;
     color: inherit;
     display: flex;
     flex-direction: column;

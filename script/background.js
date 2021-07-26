@@ -7,19 +7,19 @@
     particles = [],
     properties = {
         bgColor             : '#242424',
-        particleColor       : 'rgba(255,252,252, 0.75)',
+        particleColor       : 'rgba(175,173,173,0.85)',
         particleRadius      : 3,
-        particleCount       : 90,
-        particleMaxVelocity : 0.5,
+        particleCount       : 100,
+        particleMaxVelocity : 0.35,
         lineLength          : 150,
-        particleLife        : 20,
+        particleLife        : 60,
     };
 
-    document.querySelector('body').appendChild(canvas);
+    document.getElementById('particles').appendChild(canvas);
 
     window.onresize = function(){
         w = canvas.width = innerWidth,
-        h = canvas.height = innerHeight;        
+        h = canvas.height = innerHeight;
     }
 
     class Particle{
