@@ -402,6 +402,10 @@ header {
     min-height: 55px;
 }
 
+.item-pm-header{
+    min-height: 45px;
+}
+
 .portfolio-img-wrapper img {
     height: auto;
     width: 100%;
@@ -419,8 +423,18 @@ header {
 
 }
 
-.portfolio-header-badge {
+.uppercase{
+    text-transform: uppercase;
+}
+.badge-new{
     -webkit-text-stroke: 1px rgb(1, 181, 227);
+}
+
+.badge-hot{
+    -webkit-text-stroke: 1px rgba(182, 0, 0, 1);
+
+}
+.portfolio-header-badge {
     font-family: 'Futura PT Bold', sans-serif;
     font-size: 36px;
     color: #FFFFFF;
@@ -433,6 +447,10 @@ header {
     flex-direction: column;
     justify-content: space-between;
     padding-top: 20px;
+}
+
+.pm-text-wrapper{
+    padding: 0;
 }
 
 .portfolio-text-title {
@@ -454,13 +472,35 @@ header {
     align-items: center;
 }
 
+.geo-wrapper{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
 .portfolio-city {
     font-size: 14px;
     text-transform: uppercase;
     margin: 0 7px 0 17px;
 
 }
+.pm-text-title{
+    display: flex;
+    align-items: center;
+    padding: 5px 0 20px 0;
+}
 
+.portfolio-bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.experience{
+    font-family: "Futura PT Light", sans-serif;
+}
+.years {
+    padding-left: 20px;
+}
 /*pagination start*/
 .pagination-items {
     display: flex;
