@@ -103,9 +103,9 @@ document.addEventListener("click", closeAllSelect);
 //control start
 let controlBtn = document.getElementsByClassName("header-control");
 let controlForm = document.getElementsByClassName("grid-portfolio-header");
-control.onclick = function() {
-	portfolio_header.classList.toggle("visible");
-	portfolio_header.classList.toggle("none");
-	control.classList.toggle('white')
-	control.classList.toggle('cyan')
-};
+// control.onclick = function() {
+// 	portfolio_header.classList.toggle("visible");
+// 	portfolio_header.classList.toggle("none");
+// 	control.classList.toggle('white')
+// 	control.classList.toggle('cyan')
+// };

@@ -78,7 +78,7 @@ button {
     cursor: pointer;
     height: 20px;
     right: 72px;
-    position: fixed;
+    position: absolute;
     top: 65px;
     width: 20px;
     transition: .5s;
@@ -555,7 +555,6 @@ header {
     grid-gap: 40px;
 }
 .about-history{
-    min-width: 500px;
 }
 .about-history-text{
     font-family: "Futura PT Light";
@@ -566,11 +565,12 @@ header {
     position: relative;
     overflow: hidden;
     max-width: 300px;
-    width: 100%;
 
 }
 
 .person-img img{
+    width: 100%;
+
     transition: 1s;
 }
 .person-img img:hover{
@@ -610,6 +610,7 @@ header {
     justify-content: center;
 }
 .about-btn{
+
     cursor: pointer;
     color: #FFFFFF;
     margin: 40px 0;
@@ -625,6 +626,10 @@ header {
 }
 .about-btn:active{
     background: #0c748e;
+}
+.about-btn-1{}
+.about-btn-2{
+    display: none;
 }
 /*about end*/
 
@@ -642,12 +647,19 @@ header {
     .grid-portfolio-item {
         grid-template-columns: repeat(1, 1fr);
     }
+    .about-team-grid{
+        grid-gap: 20px;
+    }
+    .about-grid{
+        grid-gap: 50px;
+    }
 }
 
 @media only screen and (max-width: 1080px) {
     .portfolio-text-title{
         font-size: 28px;
     }
+
 }
 
 @media only screen and (max-width: 1024px) {
@@ -660,6 +672,28 @@ header {
     }
     .pagination-items{
         margin: 30px 0 30px 0;
+    }
+    .about-grid{
+        grid-template-columns: 1fr;
+    }
+    .about-btn{
+        bottom: 0;
+    }
+    .about-btn-1{ display: none}
+    .about-btn-2{
+        display: block;
+    }
+    .about-grid{
+        grid-gap: 10px;
+    }
+    .about-team-grid{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .about-btn{
+        bottom: 0;
     }
 }
 
