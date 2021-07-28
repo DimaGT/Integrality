@@ -537,6 +537,96 @@ header {
 
 /*pagination end*/
 /*portfolio end*/
+/*about start*/
+.about-grid{
+    display: grid;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 100px;
+    color: #fff;
+
+}
+
+.about-team-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 40px;
+}
+.about-history{
+    min-width: 500px;
+}
+.about-history-text{
+    font-family: "Futura PT Light";
+    font-size: 20px;
+}
+
+.person-img {
+    position: relative;
+    overflow: hidden;
+    max-width: 300px;
+    width: 100%;
+
+}
+
+.person-img img{
+    transition: 1s;
+}
+.person-img img:hover{
+    transform: scale(1.1); /* Увеличиваем масштаб */
+
+}
+
+
+.about-history-title{
+    margin-bottom: 35px;
+}
+.person-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    padding: 0 15px;
+    bottom: 0;
+    background-color: rgba(89, 89, 89, 1);
+    width: 100%;
+    color: white;
+    min-height: 65px;
+}
+
+.person-title p{
+    font-size: 17px;
+    margin: 0;
+}
+.person-name{}
+.person-role{
+    color: rgba(193, 193, 193, 1);
+    font-family: "Futura PT Light";
+}
+
+.btn-wrapper{
+    display: flex;
+    justify-content: center;
+}
+.about-btn{
+    cursor: pointer;
+    color: #FFFFFF;
+    margin: 40px 0;
+    padding: 12px 95px;
+    max-width: 290px;
+    background: #01A9D4;
+    border-radius: 7px;
+    transition: .3s;
+}
+
+.about-btn:hover{
+    background: #018caf;
+}
+.about-btn:active{
+    background: #0c748e;
+}
+/*about end*/
 
 
 @media only screen and (max-width: 1224px) {
@@ -779,6 +869,10 @@ header {
     }
     .country-img{
         display: none;
+    }
+
+    .geo-wrapper{
+        margin-bottom: 1px;
     }
 }
 
