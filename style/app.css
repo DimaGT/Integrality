@@ -442,6 +442,11 @@ header {
     margin-bottom: 0;
 
 }
+.power-title{
+    font-size: 18px;
+    font-family: "Futura PT Medium";
+    line-height: 30px;
+}
 
 .uppercase {
     text-transform: uppercase;
@@ -449,6 +454,7 @@ header {
 
 .badge-new {
     -webkit-text-stroke: 1px rgb(1, 181, 227);
+    color: transparent !important;
 }
 
 .badge-hot {
@@ -530,6 +536,7 @@ header {
 .years {
     padding-left: 20px;
 }
+.badge-visible{display: none}
 
 /*pagination start*/
 .pagination-items {
@@ -1006,20 +1013,25 @@ header {
     .power-wrapper {
         margin: 0 auto;
     }
-    .power-description{
-        left: 40px;
-        top: 200px;
-    }
+
     .power-wrapper{
         margin-top: 70px;
     }
-    .badge-new{
-        position: absolute;
-        right: 0;
+    .badge-none{
+        display: none;
+    }
+    .power-city{
+        justify-content: space-between;
+    }
+    .badge-visible{
+        display: block;
+    }
+    .power-description {
+        left: 40px;
+        top: 180px;
     }
 
 }
-
 @media only screen and (max-width: 931px) {
     .pm-geo {
         display: inline;
@@ -1028,6 +1040,9 @@ header {
 
     .country-img {
         display: none;
+    }
+    .power-country-img{
+        display: inline;
     }
 
     .portfolio-city {
@@ -1159,6 +1174,14 @@ header {
     .power-badge {
         padding: 20px 20px 20px 0;
     }
+    .power-description{
+        left: 40px;
+        top: 280px;
+    }
+
+    .power-wrapper {
+        margin-top: 110px;
+    }
 
 }
 
@@ -1188,6 +1211,9 @@ header {
 
     .splide__track {
         padding: 0px 40px 20px 30px !important;
+    }
+    .power-city{
+        margin: 0 -20px;
     }
 }
 
@@ -1288,7 +1314,9 @@ header {
     .country-img {
         display: none;
     }
-
+    .power-country-img{
+        display: inline;
+    }
     .geo-wrapper {
         margin-bottom: 1px;
     }
