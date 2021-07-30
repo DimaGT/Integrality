@@ -453,8 +453,12 @@ header {
 
 .badge-hot {
     -webkit-text-stroke: 1px rgba(182, 0, 0, 1);
-
 }
+
+.power-badge {
+    padding: 25px 25px 20px 0;
+}
+
 
 .portfolio-header-badge {
     font-family: 'Futura PT Bold', sans-serif;
@@ -575,6 +579,10 @@ header {
     grid-gap: 100px;
     color: #fff;
 
+}
+
+.power-grid {
+    grid-gap: 75px;
 }
 
 .about-team-grid {
@@ -784,21 +792,95 @@ header {
     height: 55vh;
     color: #fff;
 }
-.title-404{
+
+.title-404 {
     font-size: 200px;
 }
-.desc-404{font-family: "Futura PT Light"}
-.message-404{font-family: "Futura PT Light"; margin-top: 15px}
-.btn-404{color: rgba(89, 89, 89, 1); background: #fff; margin-top: 30px; margin-bottom: 30px}
-.btn-404:hover{background: #d0cfcf
-}
-/*404 start*/
 
+.desc-404 {
+    font-family: "Futura PT Light"
+}
+
+.message-404 {
+    font-family: "Futura PT Light";
+    margin-top: 15px
+}
+
+.btn-404 {
+    color: rgba(89, 89, 89, 1);
+    background: #fff;
+    margin-top: 30px;
+    margin-bottom: 30px
+}
+
+.btn-404:hover {
+    background: #d0cfcf
+}
+
+/*404 start*/
+/*power page start*/
+
+.power-wrapper {
+    background: #FFFFFF;
+    border-radius: 10px;
+    max-height: 790px;
+}
+.power-description{
+    position: absolute;
+    right: 75px;
+}
+.power-city{
+    color: rgba(89, 89, 89, 1);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.power-country-img{
+    margin-left: 7px;
+}
+
+/*power page end*/
+/*slider start*/
+
+
+.splide {
+    max-width: 675px;
+}
+
+.splide__slide {
+    width: 190px !important;
+    height: 160px !important;
+}
+
+.slide-main {
+    width: 560px !important;
+    height: 480px !important;
+    display: flex !important;
+}
+
+.splide__track {
+    padding: 0px 40px 20px 30px !important;
+}
+
+.splide__list {
+    margin: 0 auto !important;
+}
+
+.splide--nav > .splide__track > .splide__list > .splide__slide.is-active {
+    border-color: transparent !important;
+}
+
+/*slider end*/
+@media only screen and (max-width: 1324px) {
+    .power-description{
+        right: 30px;
+    }
+}
 @media only screen and (max-width: 1224px) {
     .grid-portfolio-header {
         padding: 30px 50px;
     }
-
 
     .button {
         margin-left: 10px;
@@ -815,6 +897,36 @@ header {
     .about-grid {
         grid-gap: 50px;
     }
+
+    .power-wrapper {
+        max-height: 790px;
+    }
+
+    .splide {
+        max-width: 550px;
+    }
+
+    .splide__slide {
+        width: 140px !important;
+        height: 120px !important;
+    }
+
+    .slide-main {
+        width: 490px !important;
+        height: 415px !important;
+    }
+
+    .splide__track {
+        padding: 0px 40px 20px 30px !important;
+    }
+}
+
+@media only screen and (max-width: 1135px) {
+    .power-wrapper {
+
+        max-height: 670px;
+    }
+
 }
 
 @media only screen and (max-width: 1080px) {
@@ -889,6 +1001,21 @@ header {
 
     .contacts-form-wrapper {
         margin-bottom: 30px;
+    }
+
+    .power-wrapper {
+        margin: 0 auto;
+    }
+    .power-description{
+        left: 40px;
+        top: 200px;
+    }
+    .power-wrapper{
+        margin-top: 70px;
+    }
+    .badge-new{
+        position: absolute;
+        right: 0;
     }
 
 }
@@ -1029,6 +1156,10 @@ header {
         background: url("../image/background.png") #585858 no-repeat;;
     }
 
+    .power-badge {
+        padding: 20px 20px 20px 0;
+    }
+
 }
 
 @media only screen and (max-width: 651px) {
@@ -1038,6 +1169,25 @@ header {
 
     .contacts-item {
         width: 100%;
+    }
+
+
+    .splide {
+        max-width: 400px;
+    }
+
+    .splide__slide {
+        width: 140px !important;
+        height: 120px !important;
+    }
+
+    .slide-main {
+        width: 340px !important;
+        height: 290px !important;
+    }
+
+    .splide__track {
+        padding: 0px 40px 20px 30px !important;
     }
 }
 
@@ -1141,6 +1291,28 @@ header {
 
     .geo-wrapper {
         margin-bottom: 1px;
+    }
+
+    .power-wrapper {
+        max-height: 790px;
+    }
+
+    .splide {
+        max-width: 300px;
+    }
+
+    .splide__slide {
+        width: 110px !important;
+        height: 94px !important;
+    }
+
+    .slide-main {
+        width: 250px !important;
+        height: 212px !important;
+    }
+
+    .splide__track {
+        padding: 0px 15px 15px 15px !important;
     }
 }
 

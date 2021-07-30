@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
+</head>
+
+<body>
+
+<div id="primary-slider" class="splide">
+    <div class="splide__track">
+        <ul class="splide__list">
+            <li class="splide__slide">
+                <img src="image/person-1.png">
+            </li>
+            <li class="splide__slide">
+                <img src="image/person-2.png">
+            </li>
+            <li class="splide__slide">
+                <img src="image/person-3.png">
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div id="secondary-slider" class="splide">
+    <div class="splide__track">
+        <ul class="splide__list">
+            <li class="splide__slide">
+                <img src="image/person-1.png">
+            </li>
+            <li class="splide__slide">
+                <img src="image/person-2.png">
+            </li>
+            <li class="splide__slide">
+                <img src="image/person-3.png">
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    document.addEventListener( 'DOMContentLoaded', function () {
+        var secondarySlider = new Splide( '#secondary-slider', {
+            gap         : 10,
+            cover       : true,
+            isNavigation: true,
+            focus       : 'center',
+            breakpoints : {
+                '600': {
+                    fixedWidth: 66,
+                    height    : 40,
+                }
+            },
+        } ).mount();
+
+        var primarySlider = new Splide( '#primary-slider', {
+            type       : 'fade',
+            heightRatio: 0.5,
+            pagination : false,
+            arrows     : false,
+            cover      : true,
+        } ); // do not call mount() here.
+
+        primarySlider.sync( secondarySlider ).mount();
+    } );
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+
+</body>
+</html>
