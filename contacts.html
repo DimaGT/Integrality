@@ -93,12 +93,12 @@
                 <h3 class="about-history-title contacts-history-title">
                     Our history
                 </h3>
-                <form name="contacts-form" class="contacts-form">
+                <form name="contacts-form" class="contacts-form" onsubmit="validateArea(this)">
                     <div class="mb-3" id="name">
                         <input type="text"  onchange="validateName(this)" class="contacts-input" placeholder="Name" value="">
                     </div>
-                    <div class="mb-3">
-                        <input type="email" class="contacts-input" onchange="validateEmail(this.value)" placeholder="E-mail">
+                    <div class="mb-3" id="email">
+                        <input type="email" class="contacts-input" onchange="validateEmail(this)" placeholder="E-mail">
                     </div>
                     <div class="mb-3">
                         <input type="tel" class="contacts-input" placeholder="Phone">
