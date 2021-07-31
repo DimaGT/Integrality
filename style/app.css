@@ -177,7 +177,17 @@ button {
 .nav-link:first-child {
     margin-left: 0
 }
+.error{
+    color: red;
+    padding: 5px 0 0 10px ;
+}
 
+.correct{
+    border: 1px solid #57c905 !important;
+}
+.uncorrect{
+    border: 1px solid #c90515 !important;
+}
 header {
     max-width: 1740px;
     height: 210px;

@@ -8,7 +8,7 @@
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="style/app.css">
-
+    <script src="script/validation.js"></script>
 </head>
 
 <body>
@@ -93,22 +93,21 @@
                 <h3 class="about-history-title contacts-history-title">
                     Our history
                 </h3>
-                <form class="contacts-form">
-                    <div class="mb-3">
-                        <input type="text" class="contacts-input" placeholder="Name">
+                <form name="contacts-form" class="contacts-form">
+                    <div class="mb-3" id="name">
+                        <input type="text"  onchange="validateName(this)" class="contacts-input" placeholder="Name" value="">
                     </div>
                     <div class="mb-3">
-                        <input type="email" class="contacts-input" placeholder="E-mail">
+                        <input type="email" class="contacts-input" onchange="validateEmail(this.value)" placeholder="E-mail">
                     </div>
                     <div class="mb-3">
                         <input type="tel" class="contacts-input" placeholder="Phone">
                     </div>
                     <div class="mb-3">
-                        <textarea class="contacts-input contacts-textarea" placeholder="E-mail"></textarea>
+                        <textarea class="contacts-input contacts-textarea" placeholder="Message"></textarea>
                     </div>
                     <div class="btn-wrapper">
-
-                        <button class="about-btn  contacts-btn uppercase">home</button>
+                        <button type="submit" class="about-btn  contacts-btn uppercase">home</button>
                     </div>
                 </form>
 
