@@ -443,6 +443,8 @@ header {
 
 }
 .power-title{
+    text-align: right;
+
     font-size: 18px;
     font-family: "Futura PT Medium";
     line-height: 30px;
@@ -590,6 +592,7 @@ header {
 
 .power-grid {
     grid-gap: 75px;
+    padding-bottom: 150px;
 }
 
 .about-team-grid {
@@ -847,6 +850,11 @@ header {
     margin-left: 7px;
 }
 
+.power-history-title{
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
 /*power page end*/
 /*slider start*/
 
@@ -877,7 +885,24 @@ header {
 .splide--nav > .splide__track > .splide__list > .splide__slide.is-active {
     border-color: transparent !important;
 }
-
+.third-slide{
+    width: 150px !important;
+    height: 100px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.power-gap{
+    margin-top: 40px;
+}
+.third-slide-text{
+    font-size: 18px;
+    color: rgba(49, 149, 249, 1);
+    /*width: 70px !important;*/
+}
+.track-third{
+    padding: 0!important;
+}
 /*slider end*/
 @media only screen and (max-width: 1324px) {
     .power-description{

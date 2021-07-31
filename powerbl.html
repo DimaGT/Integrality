@@ -103,7 +103,7 @@
                 </div>
 
             </div>
-            <div class="about-history">
+            <div class="about-history power-gap">
                 <div class="power-description">
 
                     <div class="power-city uppercase"><span><h3 class="portfolio-header-title power-title">UX/UI Design</h3>Ivano-frankivsk <img src="image/ua.png" width="20" alt=""
@@ -111,7 +111,7 @@
                         <div class="portfolio-header-badge badge-new badge-visible"> new</div>
                     </div>
                 </div>
-                <h3 class="about-history-title">
+                <h3 class="about-history-title  power-history-title">
                     Smart PowerBL
                 </h3>
                 <p class="about-history-text">
@@ -121,7 +121,7 @@
                     organization to consume on the web and across mobile devices...
 
                 </p>
-                <h3 class="about-history-title">
+                <h3 class="about-history-title power-history-title">
                     Business challenge
                 </h3>
                 <p class="about-history-text">
@@ -132,7 +132,7 @@
                     according to structure view and fills it with data based on data model. Based scheduler should
                     execute generation in planned times, so users will be able to receive trash reports automatically.
                 </p>
-                <h3 class="about-history-title">
+                <h3 class="about-history-title  power-history-title">
                     Result
                 </h3>
                 <p class="about-history-text">
@@ -145,9 +145,28 @@
                     of the tenant and non-functional properties. The architecture is developed in the way, that enables
                     the cube processing and deployment to the cloud to be included in the future.
                 </p>
-                <h3 class="about-history-title">
+                <h3 class="about-history-title  power-history-title">
                     Tehnologies
                 </h3>
+                <div id="third-slider" class="splide splide-3">
+                    <div class="splide__track track-third">
+                        <ul class="splide__list" >
+                            <li class="splide__slide third-slide">
+                                <img src="image/technology-1.png">
+                            </li>
+                            <li class="splide__slide third-slide">
+                                <img src="image/technology-2.png">
+                            </li>
+                            <li class="splide__slide third-slide third-slide-text">
+                                <span>PowerBl</span>
+                            </li>
+                            <li class="splide__slide third-slide third-slide-text">
+                                <span>Business
+                                    intelligence</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 
             </div>
 
@@ -173,11 +192,11 @@
             rewindSpeed: 700,
             gap: 25,
             autoplay: 1,
+            padding: 25,
             cover: true,
             isNavigation: true,
             pagination: false,
             arrows: false,
-            padding: 25,
             focus: 'center',
             breakpoints: {
                 640: {
@@ -196,6 +215,23 @@
         }); // do not call mount() here.
 
         primarySlider.sync(secondarySlider).mount();
+
+        var thirdSlider = new Splide('#third-slider', {
+            rewind: true,
+            rewindSpeed: 700,
+            gap: 20,
+            autoplay: 1,
+            cover: true,
+            isNavigation: true,
+            pagination: false,
+            arrows: false,
+            focus: 'center',
+            breakpoints: {
+                640: {
+                    gap: 5,
+                },
+            }
+        }).mount();
     });
 </script>
 </html>
