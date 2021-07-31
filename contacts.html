@@ -99,21 +99,21 @@
 
 
 
-                <form name="contacts-form" class="contacts-form" onsubmit="validateArea(this)">
+                <form name="contacts-form" class="contacts-form" onsubmit="return formCheck()">
                     <div class="mb-3" id="name">
-                        <input type="text" onchange="validateName(this)" class="contacts-input" placeholder="Name"
+                        <input type="text" id="nameInput" onchange="validateName(this)" class="contacts-input" placeholder="Name"
                                value="">
                     </div>
                     <div class="mb-3" id="email">
-                        <input type="email" class="contacts-input" onchange="validateEmail(this)" placeholder="E-mail">
+                        <input type="email" id="emailInput" class="contacts-input" onchange="validateEmail(this)" placeholder="E-mail">
                     </div>
                     <div class="mb-3">
-                        <input id="phone" class="contacts-input" type="tel">
+                        <input id="phone" class="contacts-input" onchange="validatePhone(this)" type="number">
                         <span id="valid-msg" class="hide">✓ Valid</span>
                         <span id="error-msg" class="hide"></span>
                     </div>
                     <div class="mb-3">
-                        <textarea class="contacts-input contacts-textarea" placeholder="Message"></textarea>
+                        <textarea class="contacts-input contacts-textarea" id="area" placeholder="Message" onchange="validateArea(this)"></textarea>
                     </div>
                     <div class="btn-wrapper">
                         <button type="submit" class="about-btn  contacts-btn uppercase">home</button>
@@ -167,9 +167,11 @@
         reset();
         if (input.value.trim()) {
             if (iti.isValidNumber()) {
+                input.classList.remove("uncorrect");
                 input.classList.add("correct");
             } else {
-                input.classList.add("error");
+                input.classList.remove("correct");
+                input.classList.add("uncorrect");
                 var errorCode = iti.getValidationError();
                 errorMsg.innerHTML = errorMap[errorCode];
                 errorMsg.classList.remove("hide");
