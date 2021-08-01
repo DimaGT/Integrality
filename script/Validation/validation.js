@@ -68,4 +68,5 @@ function formCheck() {
 
     return nameValid && emailValid && phoneValid && areaValid;
 }
+//file valid
 

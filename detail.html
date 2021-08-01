@@ -3,8 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link rel="icon" href="image/favicon.png" type="image/x-icon">
+    <link rel="icon" href="image/favicon.png" type="image/x-icon">
     <title>Integrality</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -30,7 +29,7 @@
         </div>
         <div class="col-lg-8 col-md-6 d-flex align-items-end justify-content-center title-wrapper">
             <h1 class="title">
-                contacts
+                Senior Javascript developers
             </h1>
         </div>
         <div class="col-lg-2  col-md-3">
@@ -59,51 +58,20 @@
 <main class="about">
     <div class="container-fluid">
         <div class="contacts-grid">
-            <div class="contacts-item-wrapper">
-                <div class="contacts-item">
-                    <h5 class="contacts-title">Адрес</h5>
-                    <p class="contacts-description">
-                        м. Івано-Франківськ <br><br>
-                        вул. Чорновола 39
-                    </p>
-                </div>
-                <div class="contacts-item">
-                    <h5 class="contacts-title">E-mail</h5>
-                    <p class="contacts-description">
-                        dmytro.chervinko@makeitease.eu <br><br>
-                        taras.buha@makeitease.eu
-                    </p>
-                </div>
-                <div class="contacts-item">
-                    <h5 class="contacts-title">Messengers</h5>
-                    <p class="contacts-description">
-                        +38 050 146 29 30 <i class="fab fa-telegram-plane"></i><i class="fab fa-viber"></i><br> <br>
-                        +47 455 12 107 <i class="fab fa-telegram-plane"></i><i class="fab fa-viber"></i><br> <br>
-                        makeitease<i class="fab fa-skype"></i>
-                    </p>
-                </div>
-                <div class="contacts-item">
-                    <h5 class="contacts-title">Follow us</h5>
-                    <p class="contacts-description">
-                    <div class="nav-links contacts-links">
-                        <a href="https://facebook.com/" class="nav-link contacts-link">In</a>
-                        <a href="https://instagram.com/" class="nav-link contacts-link">Fb</a>
-                        <a href="https://twitter.com/" class="nav-link contacts-link">Tw</a>
-                    </div>
-                    </p>
-                </div>
-            </div>
+            d
             <div class="contacts-form-wrapper">
                 <h3 class="about-history-title contacts-history-title">
                     Contact us
                 </h3>
                 <form name="contacts-form" class="contacts-form" onsubmit="return formCheck()">
                     <div class="mb-3" id="name">
-                        <input type="text" id="nameInput" onchange="validateName(this)" class="contacts-input" placeholder="Name"
+                        <input type="text" id="nameInput" onchange="validateName(this)" class="contacts-input"
+                               placeholder="Name"
                                name="name">
                     </div>
                     <div class="mb-3" id="email">
-                        <input type="email" id="emailInput" class="contacts-input" onchange="validateEmail(this)" placeholder="E-mail" name="email">
+                        <input type="email" id="emailInput" class="contacts-input" onchange="validateEmail(this)"
+                               placeholder="E-mail" name="email">
                     </div>
                     <div class="mb-3">
                         <input id="phone" class="contacts-input" onchange="validatePhone(this)" type="number">
@@ -111,7 +79,11 @@
                         <span id="error-msg" class="hide"></span>
                     </div>
                     <div class="mb-3">
-                        <textarea class="contacts-input contacts-textarea" id="area" placeholder="Message" onchange="validateArea(this)" name="area"></textarea>
+                        <input type="file" id="actual-btn" hidden/>
+                        <div class="file-wrapper contacts-input">
+                            <span id="file-chosen">Add file</span>
+                            <label class="fileLabel" for="actual-btn"><img src="image/clip.png" height="18" alt="Add File"></label>
+                        </div>
                     </div>
                     <div class="btn-wrapper">
                         <button type="submit" class="about-btn  contacts-btn uppercase">send</button>
@@ -135,7 +107,14 @@
 <script src="script/background/app.js"></script>
 <script src="script/Validation/phoneValidation/intlTelInput.js"></script>
 <script>
-   let input = document.querySelector("#phone"),
+    const actualBtn = document.getElementById('actual-btn');
+    const fileChosen = document.getElementById('file-chosen');
+    actualBtn.addEventListener('change', function () {
+        fileChosen.textContent = this.files[0].name
+    })
+</script>
+<script>
+    let input = document.querySelector("#phone"),
         errorMsg = document.querySelector("#error-msg");
 
     // here, the index maps to the error code returned from getValidationError
@@ -152,14 +131,14 @@
         utilsScript: "script/Validation/phoneValidation/utils.js"
     });
 
-    var reset = function() {
+    var reset = function () {
         input.classList.remove("error");
         errorMsg.innerHTML = "";
         errorMsg.classList.add("hide");
     };
 
     // on blur: validate
-    input.addEventListener('blur', function() {
+    input.addEventListener('blur', function () {
         reset();
         if (input.value.trim()) {
             if (iti.isValidNumber()) {
