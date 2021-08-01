@@ -94,18 +94,15 @@
             </div>
             <div class="contacts-form-wrapper">
                 <h3 class="about-history-title contacts-history-title">
-                    Our history
+                    Contact us
                 </h3>
-
-
-
                 <form name="contacts-form" class="contacts-form" onsubmit="return formCheck()">
                     <div class="mb-3" id="name">
                         <input type="text" id="nameInput" onchange="validateName(this)" class="contacts-input" placeholder="Name"
-                               value="">
+                               name="name">
                     </div>
                     <div class="mb-3" id="email">
-                        <input type="email" id="emailInput" class="contacts-input" onchange="validateEmail(this)" placeholder="E-mail">
+                        <input type="email" id="emailInput" class="contacts-input" onchange="validateEmail(this)" placeholder="E-mail" name="email">
                     </div>
                     <div class="mb-3">
                         <input id="phone" class="contacts-input" onchange="validatePhone(this)" type="number">
@@ -113,10 +110,10 @@
                         <span id="error-msg" class="hide"></span>
                     </div>
                     <div class="mb-3">
-                        <textarea class="contacts-input contacts-textarea" id="area" placeholder="Message" onchange="validateArea(this)"></textarea>
+                        <textarea class="contacts-input contacts-textarea" id="area" placeholder="Message" onchange="validateArea(this)" name="area"></textarea>
                     </div>
                     <div class="btn-wrapper">
-                        <button type="submit" class="about-btn  contacts-btn uppercase">home</button>
+                        <button type="submit" class="about-btn  contacts-btn uppercase">send</button>
                     </div>
                 </form>
 
@@ -137,17 +134,15 @@
 <script src="script/background/app.js"></script>
 <script src="script/Validation/phoneValidation/intlTelInput.js"></script>
 <script>
-
    let input = document.querySelector("#phone"),
         errorMsg = document.querySelector("#error-msg");
 
-
-    // here, the index maps to the error code returned from getValidationError - see readme
+    // here, the index maps to the error code returned from getValidationError
     let errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
 
     // initialise plugin
     var iti = window.intlTelInput(input, {
-        initialCountry: 'ua',//"auto",
+        initialCountry: 'ua',
         hiddenInput: 'full_phone',
         autoHideDialCode: 'true',
         autoPlaceholder: 'aggressive',

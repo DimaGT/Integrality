@@ -46,7 +46,7 @@ function validateEmail(e) {
 }
 
 function validatePhone(e) {
-    setTimeout(() => e.classList.contains("correct") ? phoneValid = true : null , 10 )
+    setTimeout(() => e.classList.contains("correct") ? phoneValid = true :  phoneValid = false , 10 )
 
 }
 function validateArea(e) {
