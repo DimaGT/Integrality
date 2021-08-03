@@ -3,7 +3,8 @@ let regexEmail = /^(([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5}){1,2
     nameValid = false,
     emailValid = false,
     phoneValid = false,
-    areaValid = false;
+    areaValid = false,
+    fileValid = false;
 
 function validateName(e) {
     let element = document.createElement("div");
@@ -45,12 +46,24 @@ function validateEmail(e) {
     }
 }
 
-function validatePhone(e) {
-    setTimeout(() => e.classList.contains("correct") ? phoneValid = true :  phoneValid = false , 10 )
+const actualBtn = document.getElementById('actual-btn') !== undefined ? document.getElementById('actual-btn') : null;
+const fileChosen = document.getElementById('file-chosen') !== undefined ? document.getElementById('file-chosen') : null;
+const fileWrapper = document.getElementById('detailFile') !== undefined ? document.getElementById('detailFile') : null;
+
+if (document.getElementById('actual-btn') !== null) {
+    actualBtn.addEventListener('change', function () {
+        fileChosen.textContent = this.files[0].name
+        this.files[0] !== undefined ? fileValid = true : null
+        fileValid ? fileWrapper.classList.remove('uncorrect') : null
+        fileValid ? fileWrapper.classList.add('correct') : null
+    })
+}
+function validatePhone(e){
+    setTimeout(()=>e.classList.contains('correct') ? phoneValid = true : null, 50)
 
 }
 function validateArea(e) {
-    if (e.value !== ''){
+    if (e.value !== '') {
         e.classList.remove('uncorrect')
         e.classList.add('correct')
         areaValid = true
@@ -60,6 +73,7 @@ function validateArea(e) {
         areaValid = false
     }
 }
+
 function formCheck() {
     !nameValid ? document.getElementById("nameInput").classList.add('uncorrect') : null
     !emailValid ? document.getElementById("emailInput").classList.add('uncorrect') : null
@@ -68,5 +82,57 @@ function formCheck() {
 
     return nameValid && emailValid && phoneValid && areaValid;
 }
-//file valid
 
+function formCheckDetail() {
+    !nameValid ? document.getElementById("nameInput").classList.add('uncorrect') : null
+    !emailValid ? document.getElementById("emailInput").classList.add('uncorrect') : null
+    !phoneValid ? document.getElementById("phone").classList.add('uncorrect') : null
+    !fileValid ? document.getElementById("detailFile").classList.add('uncorrect') : null
+
+    return nameValid && emailValid && phoneValid && fileValid;
+}
+
+//file valid
+let input = document.querySelector("#phone"),
+    errorMsg = document.querySelector("#error-msg");
+
+// here, the index maps to the error code returned from getValidationError
+let errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
+
+// initialise plugin
+var iti = window.intlTelInput(input, {
+    initialCountry: 'ua',
+    hiddenInput: 'full_phone',
+    autoHideDialCode: 'true',
+    autoPlaceholder: 'aggressive',
+    separateDialCode: 'false', //"true",
+    preferredCountries: ['ua', 'ru', 'gb', 'se', 'fi', 'is', 'no', 'dk', 'nl', 'de', 'ch', 'at', 'sg', 'nz', 'my', 'ie', 'kr', 'gr', 'ee'],
+    utilsScript: "script/Validation/phoneValidation/utils.js"
+});
+
+var reset = function () {
+    input.classList.remove("error");
+    errorMsg.innerHTML = "";
+    errorMsg.classList.add("hide");
+};
+
+// on blur: validate
+input.addEventListener('blur', function () {
+    reset();
+    if (input.value.trim()) {
+        if (iti.isValidNumber()) {
+            input.classList.remove("uncorrect");
+            input.classList.add("correct");
+        } else {
+            input.classList.remove("correct");
+            input.classList.add("uncorrect");
+            var errorCode = iti.getValidationError();
+            errorMsg.innerHTML = errorMap[errorCode];
+            errorMsg.classList.remove("hide");
+        }
+    }
+});
+
+// on keyup / change flag: reset
+input.addEventListener('change', reset);
+input.addEventListener('keyup', reset);

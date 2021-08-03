@@ -10,7 +10,6 @@
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="style/app.css">
-    <script src="script/Validation/validation.js"></script>
     <link href="style/intlTelInput.css" rel="stylesheet">
 
 </head>
@@ -134,50 +133,10 @@
 <script src="script/background/particles.js"></script>
 <script src="script/background/app.js"></script>
 <script src="script/Validation/phoneValidation/intlTelInput.js"></script>
+<script src="script/Validation/validation.js"></script>
+
 <script>
-   let input = document.querySelector("#phone"),
-        errorMsg = document.querySelector("#error-msg");
 
-    // here, the index maps to the error code returned from getValidationError
-    let errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
-
-    // initialise plugin
-    var iti = window.intlTelInput(input, {
-        initialCountry: 'ua',
-        hiddenInput: 'full_phone',
-        autoHideDialCode: 'true',
-        autoPlaceholder: 'aggressive',
-        separateDialCode: 'false', //"true",
-        preferredCountries: ['ua', 'ru', 'gb', 'se', 'fi', 'is', 'no', 'dk', 'nl', 'de', 'ch', 'at', 'sg', 'nz', 'my', 'ie', 'kr', 'gr', 'ee'],
-        utilsScript: "script/Validation/phoneValidation/utils.js"
-    });
-
-    var reset = function() {
-        input.classList.remove("error");
-        errorMsg.innerHTML = "";
-        errorMsg.classList.add("hide");
-    };
-
-    // on blur: validate
-    input.addEventListener('blur', function() {
-        reset();
-        if (input.value.trim()) {
-            if (iti.isValidNumber()) {
-                input.classList.remove("uncorrect");
-                input.classList.add("correct");
-            } else {
-                input.classList.remove("correct");
-                input.classList.add("uncorrect");
-                var errorCode = iti.getValidationError();
-                errorMsg.innerHTML = errorMap[errorCode];
-                errorMsg.classList.remove("hide");
-            }
-        }
-    });
-
-    // on keyup / change flag: reset
-    input.addEventListener('change', reset);
-    input.addEventListener('keyup', reset);
 
 </script>
 

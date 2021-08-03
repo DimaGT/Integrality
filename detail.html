@@ -9,7 +9,6 @@
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="style/app.css">
-    <script src="script/Validation/validation.js"></script>
     <link href="style/intlTelInput.css" rel="stylesheet">
 
 </head>
@@ -28,7 +27,7 @@
             </div>
         </div>
         <div class="col-lg-8 col-md-6 d-flex align-items-end justify-content-center title-wrapper">
-            <h1 class="title">
+            <h1 class="title detail-main-title">
                 Senior Javascript developers
             </h1>
         </div>
@@ -58,12 +57,46 @@
 <main class="about">
     <div class="container-fluid">
         <div class="contacts-grid">
-            d
+            <div class="detail-about-wrapper">
+                <h4 class="detail-title">
+                    We are looking for Senior Javascript developers to join our partner Exadel team.
+                </h4>
+                <h5 class="detail-desc-title">About the Customer:</h5>
+                <ul class="detail-desc">
+                    <li>Don’t miss your chance to work with the world’s largest human resources consulting firm, headquartered in New York City. The company has more than 20,500 employees, is based in more than 40 countries, and operates internationally in more than 130 countries. Its services are used by 97% of Fortune 500 companies.</li>
+                </ul>
+                <h5 class="detail-desc-title">About the Project:</h5>
+                <ul class="detail-desc">
+                    <li>Information about project will be added later. Customer has multiple projects and frequently decides about allocation based on candidate capabilities.</li>
+                </ul>
+                <h5 class="detail-desc-title">Responsibilities:</h5>
+                <ul class="detail-desc">
+                    <li>-Develop front and back end of the working project</li>
+                    <li>-Write new features, fix bugs, assist in refactoring, unit tests, and documentation</li>
+                    <li>-Communicate with the customer through Confluence, Atlassian, and voice meetings</li>
+                    <li>-Constantly work on improving your skills and qualifications</li>
+                    <li>-Provide technical leadership on the project</li>
+                    <li>-Bring energy and passion to your work day in and day out</li>
+                    <li>-Be strategic and tactical</li>
+                </ul>
+                <h5 class="detail-desc-title">REquirements;</h5>
+                <ul class="detail-desc">
+                    <li>-Strong JavaScript experience</li>
+                    <li>-Hands-on experience with Node.js</li>
+                    <li>-Knowledge of Angular 2+</li>
+                    <li>-Strong engineering process and hygiene skills (e.g. source control, coding standards, code reviews)</li>
+                    <li>-Ability to work in an agile team (SCRUM)</li>
+                    <li>-High level of comfort working with a remote team</li>
+                    <li>-Technical leadership and excellent communication skills</li>
+                    <li>-Strong organizational skills</li>
+                </ul>
+
+            </div>
             <div class="contacts-form-wrapper">
                 <h3 class="about-history-title contacts-history-title">
                     Contact us
                 </h3>
-                <form name="contacts-form" class="contacts-form" onsubmit="return formCheck()">
+                <form name="contacts-form" class="contacts-form" onsubmit="return formCheckDetail()">
                     <div class="mb-3" id="name">
                         <input type="text" id="nameInput" onchange="validateName(this)" class="contacts-input"
                                placeholder="Name"
@@ -79,8 +112,8 @@
                         <span id="error-msg" class="hide"></span>
                     </div>
                     <div class="mb-3">
-                        <input type="file" id="actual-btn" hidden/>
-                        <div class="file-wrapper contacts-input">
+                        <input type="file" id="actual-btn"  hidden/>
+                        <div class="file-wrapper contacts-input" id="detailFile">
                             <span id="file-chosen">Add file</span>
                             <label class="fileLabel" for="actual-btn"><img src="image/clip.png" height="18" alt="Add File"></label>
                         </div>
@@ -91,9 +124,7 @@
                 </form>
 
             </div>
-
         </div>
-
     </div>
 </main>
 <!--portfolio end-->
@@ -106,57 +137,10 @@
 <script src="script/background/particles.js"></script>
 <script src="script/background/app.js"></script>
 <script src="script/Validation/phoneValidation/intlTelInput.js"></script>
+<script src="script/Validation/validation.js"></script>
+
 <script>
-    const actualBtn = document.getElementById('actual-btn');
-    const fileChosen = document.getElementById('file-chosen');
-    actualBtn.addEventListener('change', function () {
-        fileChosen.textContent = this.files[0].name
-    })
-</script>
-<script>
-    let input = document.querySelector("#phone"),
-        errorMsg = document.querySelector("#error-msg");
 
-    // here, the index maps to the error code returned from getValidationError
-    let errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
-
-    // initialise plugin
-    var iti = window.intlTelInput(input, {
-        initialCountry: 'ua',
-        hiddenInput: 'full_phone',
-        autoHideDialCode: 'true',
-        autoPlaceholder: 'aggressive',
-        separateDialCode: 'false', //"true",
-        preferredCountries: ['ua', 'ru', 'gb', 'se', 'fi', 'is', 'no', 'dk', 'nl', 'de', 'ch', 'at', 'sg', 'nz', 'my', 'ie', 'kr', 'gr', 'ee'],
-        utilsScript: "script/Validation/phoneValidation/utils.js"
-    });
-
-    var reset = function () {
-        input.classList.remove("error");
-        errorMsg.innerHTML = "";
-        errorMsg.classList.add("hide");
-    };
-
-    // on blur: validate
-    input.addEventListener('blur', function () {
-        reset();
-        if (input.value.trim()) {
-            if (iti.isValidNumber()) {
-                input.classList.remove("uncorrect");
-                input.classList.add("correct");
-            } else {
-                input.classList.remove("correct");
-                input.classList.add("uncorrect");
-                var errorCode = iti.getValidationError();
-                errorMsg.innerHTML = errorMap[errorCode];
-                errorMsg.classList.remove("hide");
-            }
-        }
-    });
-
-    // on keyup / change flag: reset
-    input.addEventListener('change', reset);
-    input.addEventListener('keyup', reset);
 
 </script>
 
