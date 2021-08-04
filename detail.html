@@ -111,12 +111,16 @@
                         <span id="valid-msg" class="hide">✓ Valid</span>
                         <span id="error-msg" class="hide"></span>
                     </div>
-                    <div class="mb-3">
-                        <input type="file" id="actual-btn"  hidden/>
+                    <div class="mb-3" id="file">
+                        <input type="file" id="actual-btn" accept=".rtf, .doc, .docx, .pdf, .odt, .txt"  hidden/>
                         <div class="file-wrapper contacts-input" id="detailFile">
                             <span id="file-chosen">Add file</span>
                             <label class="fileLabel" for="actual-btn"><img src="image/clip.png" height="18" alt="Add File"></label>
                         </div>
+                    </div>
+                    <div class="mb-3 hide" id="fileLink">
+                        <input type="text" id="fileLinkInput" class="contacts-input" onchange="validateFileLink(this)"
+                               placeholder="Portfolio link" name="email">
                     </div>
                     <div class="btn-wrapper">
                         <button type="submit" class="about-btn  contacts-btn uppercase">send</button>

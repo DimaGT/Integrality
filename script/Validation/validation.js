@@ -5,7 +5,8 @@ let regexEmail = /^(([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5}){1,2
     phoneValid = false,
     areaValid = false,
     fileValid = false;
-
+    fileLinkValid = false;
+//name validation start
 function validateName(e) {
     let element = document.createElement("div");
     let textnode = document.createTextNode("Name is not valid");
@@ -25,6 +26,8 @@ function validateName(e) {
         nameValid = false
     }
 }
+//name validation end
+//email validation start
 
 function validateEmail(e) {
     let element = document.createElement("div");
@@ -45,23 +48,67 @@ function validateEmail(e) {
         emailValid = false
     }
 }
-
+//email validation end
+//file validation start
 const actualBtn = document.getElementById('actual-btn') !== undefined ? document.getElementById('actual-btn') : null;
 const fileChosen = document.getElementById('file-chosen') !== undefined ? document.getElementById('file-chosen') : null;
 const fileWrapper = document.getElementById('detailFile') !== undefined ? document.getElementById('detailFile') : null;
 
 if (document.getElementById('actual-btn') !== null) {
     actualBtn.addEventListener('change', function () {
+
+
+        let element = document.createElement("div");
+        element.innerHTML = "Max file size is 5 MB. You can <span id='click'>send a link</span> to your portfolio. ";
+        element.className = "error email-error";
+        document.getElementById("file").appendChild(element);
+        const clickFile = document.getElementById('click') !== undefined ? document.getElementById('click') : null;
+
+
         fileChosen.textContent = this.files[0].name
         this.files[0] !== undefined ? fileValid = true : null
-        fileValid ? fileWrapper.classList.remove('uncorrect') : null
-        fileValid ? fileWrapper.classList.add('correct') : null
+        if (this.files[0].size <= 5000000) {
+            fileValid ? fileWrapper.classList.remove('uncorrect') : null
+            fileValid ? fileWrapper.classList.add('correct') : null
+        } else {
+            fileValid ? fileWrapper.classList.remove('correct') : null
+            fileValid ? fileWrapper.classList.add('uncorrect') : null
+        }
+
+
+        if (clickFile !== null) {
+            clickFile.addEventListener('click', function () {
+                document.getElementById('file').classList.add('hide')
+                document.getElementById('fileLink').classList.remove('hide')
+            })
+        }else{
+            console.log(clickFile)
+        }
+
     })
 }
-function validatePhone(e){
-    setTimeout(()=>e.classList.contains('correct') ? phoneValid = true : null, 50)
+
+function validateFileLink(e){
+    if (e.value !== '') {
+        e.classList.remove('uncorrect')
+        e.classList.add('correct')
+        areaValid = true
+    } else {
+        e.classList.remove('correct')
+        e.classList.add('uncorrect')
+        areaValid = false
+    }
+}
+//file validation end
+
+// phone validation start
+function validatePhone(e) {
+    setTimeout(() => e.classList.contains('correct') ? phoneValid = true : null, 50)
 
 }
+// phone validation end
+// area validation start
+
 function validateArea(e) {
     if (e.value !== '') {
         e.classList.remove('uncorrect')
@@ -73,7 +120,8 @@ function validateArea(e) {
         areaValid = false
     }
 }
-
+// area validation end
+//check on submit contacts form start
 function formCheck() {
     !nameValid ? document.getElementById("nameInput").classList.add('uncorrect') : null
     !emailValid ? document.getElementById("emailInput").classList.add('uncorrect') : null
@@ -82,15 +130,19 @@ function formCheck() {
 
     return nameValid && emailValid && phoneValid && areaValid;
 }
+//check on submit contacts form end
 
+//check on submit detail form start
 function formCheckDetail() {
     !nameValid ? document.getElementById("nameInput").classList.add('uncorrect') : null
     !emailValid ? document.getElementById("emailInput").classList.add('uncorrect') : null
     !phoneValid ? document.getElementById("phone").classList.add('uncorrect') : null
     !fileValid ? document.getElementById("detailFile").classList.add('uncorrect') : null
+    !fileLinkValid ? document.getElementById("fileLinkInput").classList.add('uncorrect') : null
 
-    return nameValid && emailValid && phoneValid && fileValid;
+    return nameValid && emailValid && phoneValid && fileValid || fileLinkValid;
 }
+//check on submit detail form end
 
 //file valid
 let input = document.querySelector("#phone"),

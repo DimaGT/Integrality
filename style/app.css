@@ -213,6 +213,12 @@ input::-webkit-inner-spin-button {
 input[type=number] {
     -moz-appearance: textfield;
 }
+
+#click{
+    cursor: pointer;
+    color: #0c748e;
+    text-decoration: #01A9D4 underline !important;
+}
 .correct{
     border: 1px solid #57c905 !important;
 }
