@@ -5,7 +5,8 @@ let regexEmail = /^(([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5}){1,2
     phoneValid = false,
     areaValid = false,
     fileValid = false;
-    fileLinkValid = false;
+fileLinkValid = false;
+
 //name validation start
 function validateName(e) {
     let element = document.createElement("div");
@@ -26,6 +27,7 @@ function validateName(e) {
         nameValid = false
     }
 }
+
 //name validation end
 //email validation start
 
@@ -48,6 +50,7 @@ function validateEmail(e) {
         emailValid = false
     }
 }
+
 //email validation end
 //file validation start
 const actualBtn = document.getElementById('actual-btn') !== undefined ? document.getElementById('actual-btn') : null;
@@ -58,21 +61,21 @@ if (document.getElementById('actual-btn') !== null) {
     actualBtn.addEventListener('change', function () {
 
 
-        let element = document.createElement("div");
-        element.innerHTML = "Max file size is 5 MB. You can <span id='click'>send a link</span> to your portfolio. ";
-        element.className = "error email-error";
-        document.getElementById("file").appendChild(element);
-        const clickFile = document.getElementById('click') !== undefined ? document.getElementById('click') : null;
+        let clickFile = null
 
-
-        fileChosen.textContent = this.files[0].name
-        this.files[0] !== undefined ? fileValid = true : null
+        this.files[0].name !== undefined ? fileChosen.textContent = this.files[0].name : null
         if (this.files[0].size <= 5000000) {
-            fileValid ? fileWrapper.classList.remove('uncorrect') : null
-            fileValid ? fileWrapper.classList.add('correct') : null
+            this.files[0] !== undefined ? fileValid = true : null
+            fileWrapper.classList.remove('uncorrect')
+            fileWrapper.classList.add('correct')
         } else {
-            fileValid ? fileWrapper.classList.remove('correct') : null
-            fileValid ? fileWrapper.classList.add('uncorrect') : null
+            fileWrapper.classList.remove('correct')
+            fileWrapper.classList.add('uncorrect')
+            let element = document.createElement("div");
+            element.innerHTML = "Max file size is 5 MB. You can <span id='click'>send a link</span> to your portfolio. ";
+            element.className = "error email-error";
+            document.getElementById("file").appendChild(element);
+            clickFile = document.getElementById('click') !== undefined ? document.getElementById('click') : null;
         }
 
 
@@ -81,24 +84,25 @@ if (document.getElementById('actual-btn') !== null) {
                 document.getElementById('file').classList.add('hide')
                 document.getElementById('fileLink').classList.remove('hide')
             })
-        }else{
+        } else {
             console.log(clickFile)
         }
 
     })
 }
 
-function validateFileLink(e){
+function validateFileLink(e) {
     if (e.value !== '') {
         e.classList.remove('uncorrect')
         e.classList.add('correct')
-        areaValid = true
+        fileLinkValid = true
     } else {
         e.classList.remove('correct')
         e.classList.add('uncorrect')
-        areaValid = false
+        fileLinkValid = false
     }
 }
+
 //file validation end
 
 // phone validation start
@@ -106,6 +110,7 @@ function validatePhone(e) {
     setTimeout(() => e.classList.contains('correct') ? phoneValid = true : null, 50)
 
 }
+
 // phone validation end
 // area validation start
 
@@ -120,6 +125,7 @@ function validateArea(e) {
         areaValid = false
     }
 }
+
 // area validation end
 //check on submit contacts form start
 function formCheck() {
@@ -130,6 +136,7 @@ function formCheck() {
 
     return nameValid && emailValid && phoneValid && areaValid;
 }
+
 //check on submit contacts form end
 
 //check on submit detail form start
@@ -142,6 +149,7 @@ function formCheckDetail() {
 
     return nameValid && emailValid && phoneValid && fileValid || fileLinkValid;
 }
+
 //check on submit detail form end
 
 //file valid
