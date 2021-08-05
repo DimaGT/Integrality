@@ -59,6 +59,8 @@ a {
 }
 
 a:hover {
+    color: inherit;
+
     opacity: 0.8;
 }
 
@@ -274,10 +276,7 @@ header {
     font-size: 24px;
     font-family: "Futura PT Light", sans-serif;
 }
-a:hover {
-    color: inherit;
-    opacity: .7;
-}
+
 
 .nav-item:first-child {
     margin-top: 0px;
