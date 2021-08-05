@@ -127,30 +127,7 @@ function validateArea(e) {
 }
 
 // area validation end
-//check on submit contacts form start
-function formCheck() {
-    !nameValid ? document.getElementById("nameInput").classList.add('uncorrect') : null
-    !emailValid ? document.getElementById("emailInput").classList.add('uncorrect') : null
-    !phoneValid ? document.getElementById("phone").classList.add('uncorrect') : null
-    !areaValid ? document.getElementById("area").classList.add('uncorrect') : null
 
-    return nameValid && emailValid && phoneValid && areaValid;
-}
-
-//check on submit contacts form end
-
-//check on submit detail form start
-function formCheckDetail() {
-    !nameValid ? document.getElementById("nameInput").classList.add('uncorrect') : null
-    !emailValid ? document.getElementById("emailInput").classList.add('uncorrect') : null
-    !phoneValid ? document.getElementById("phone").classList.add('uncorrect') : null
-    !fileValid ? document.getElementById("detailFile").classList.add('uncorrect') : null
-    !fileLinkValid ? document.getElementById("fileLinkInput").classList.add('uncorrect') : null
-
-    return nameValid && emailValid && phoneValid && fileValid || fileLinkValid;
-}
-
-//check on submit detail form end
 
 //file valid
 let input = document.querySelector("#phone"),
@@ -196,3 +173,28 @@ input.addEventListener('blur', function () {
 // on keyup / change flag: reset
 input.addEventListener('change', reset);
 input.addEventListener('keyup', reset);
+
+//check on submit contacts form start
+function formCheck() {
+    !nameValid ? document.getElementById("nameInput").classList.add('uncorrect') : null
+    !emailValid ? document.getElementById("emailInput").classList.add('uncorrect') : null
+    !phoneValid ? document.getElementById("phone").classList.add('uncorrect') : null
+    !areaValid ? document.getElementById("area").classList.add('uncorrect') : null
+
+    return nameValid && emailValid && phoneValid && areaValid;
+}
+
+//check on submit contacts form end
+
+//check on submit detail form start
+function formCheckDetail() {
+    !nameValid ? document.getElementById("nameInput").classList.add('uncorrect') : null
+    !emailValid ? document.getElementById("emailInput").classList.add('uncorrect') : null
+    !phoneValid ? document.getElementById("phone").classList.add('uncorrect') : null
+    !fileValid ? document.getElementById("detailFile").classList.add('uncorrect') : null
+    !fileLinkValid ? document.getElementById("fileLinkInput").classList.add('uncorrect') : null
+
+    return nameValid && emailValid && phoneValid && (fileValid || fileLinkValid);
+}
+
+//check on submit detail form end

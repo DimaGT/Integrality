@@ -90,7 +90,9 @@ button {
 .nav-toggle:hover {
     opacity: 0.8;
 }
-
+ol, ul {
+    padding-left: 1rem;
+}
 .nav-toggle .nav-toggle-bar,
 .nav-toggle .nav-toggle-bar::after,
 .nav-toggle .nav-toggle-bar::before {
@@ -166,7 +168,10 @@ button {
     display: flex;
     justify-content: space-between;
 }
-
+.nav-links a:hover{
+    color: inherit;
+    opacity: .7;
+}
 .nav-link {
     color: rgba(193, 193, 193, 1);
     margin-left: 30px;
@@ -268,6 +273,10 @@ header {
     margin-top: 65px;
     font-size: 24px;
     font-family: "Futura PT Light", sans-serif;
+}
+a:hover {
+    color: inherit;
+    opacity: .7;
 }
 
 .nav-item:first-child {
@@ -783,14 +792,18 @@ header {
 }
 
 .contacts-form-wrapper {
-    max-width: 695px;
     width: 100%;
+}
+.form-wrapper{
+    max-width: 695px;
+
     background: #FFFFFF;
     border-radius: 27px;
-    padding: 50px 20px 60px 20px;
     margin: 0 auto;
-}
 
+    padding: 50px 20px 60px 20px;
+
+}
 .contacts-input {
     width: 100%;
     box-shadow: 4px 4px 17px rgba(78, 78, 78, 0.1);
@@ -954,6 +967,9 @@ header {
 }
 /*slider end*/
 /*details start*/
+.detail {
+    padding-bottom: 200px;
+}
 .detail-title{
     color: #fff;
     font-size: 24px;
@@ -1295,6 +1311,9 @@ header {
     .power-wrapper {
         margin-top: 110px;
     }
+    .detail {
+        padding-bottom: 50px;
+    }
 
 }
 
@@ -1327,6 +1346,9 @@ header {
     }
     .power-city{
         margin: 0 -20px;
+    }
+    .detail-title{
+        margin-top: 25px;
     }
 }
 
@@ -1454,6 +1476,13 @@ header {
 
     .splide__track {
         padding: 0px 15px 15px 15px !important;
+    }
+    .detail-main-title{
+        font-size: 32px
+    }
+
+    .detail-title{
+        margin-top: 20px;
     }
 }
 
