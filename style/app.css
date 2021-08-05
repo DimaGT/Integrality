@@ -84,7 +84,7 @@ button {
     right: 72px;
     position: absolute;
     top: 65px;
-    width: 20px;
+    width: 50px;
     transition: .5s;
     z-index: 2;
 }
