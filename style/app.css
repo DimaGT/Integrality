@@ -254,7 +254,12 @@ header {
 }
 
 .nav-logo img {
+<<<<<<< HEAD
+
+    width: 150px;
+=======
     width: 100%;
+>>>>>>> 01408e7b0c799adc0a6d8a2514a59f1e7cdf2bf2
 }
 
 .nav.expanded {
@@ -302,12 +307,16 @@ header {
     display: flex;
     align-items: center;
 }
+<<<<<<< HEAD
+.
+=======
 
 .portfolio-header-part-between {
     display: flex;
     justify-content: space-between;
 }
 
+>>>>>>> 01408e7b0c799adc0a6d8a2514a59f1e7cdf2bf2
 .selectpicker-wrapper {
 
     display: flex;
@@ -533,7 +542,17 @@ header {
     text-transform: uppercase;
     margin-bottom: 0;
 }
-
+.portfolio-img-wrapper{
+    position: relative;
+    padding-top: 56.25%;
+}
+.portfolio-img-wrapper img{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+}
 .portfolio-text-wrapper {
     display: flex;
     flex-direction: column;
