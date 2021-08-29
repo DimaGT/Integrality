@@ -1015,7 +1015,7 @@ header {
     .about-team-grid {
         grid-gap: 20px;
     }
- 
+
     .about-grid {
         grid-gap: 50px;
     }
@@ -1026,7 +1026,7 @@ header {
 
     .splide {
         max-width: 550px;
-    }
+    } 
 
     .splide__slide {
         width: 140px !important;
