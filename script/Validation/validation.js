@@ -84,10 +84,7 @@ if (document.getElementById('actual-btn') !== null) {
                 document.getElementById('file').classList.add('hide')
                 document.getElementById('fileLink').classList.remove('hide')
             })
-        } else {
-            console.log(clickFile)
         }
-
     })
 }
 
@@ -174,27 +171,33 @@ input.addEventListener('blur', function () {
 input.addEventListener('change', reset);
 input.addEventListener('keyup', reset);
 
-//check on submit contacts form start
-function formCheck() {
+let form = document.getElementsByName('contacts_form')[0] !== undefined ? document.getElementsByName('contacts_form')[0] : ''
+
+form.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+
     !nameValid ? document.getElementById("nameInput").classList.add('uncorrect') : null
     !emailValid ? document.getElementById("emailInput").classList.add('uncorrect') : null
     !phoneValid ? document.getElementById("phone").classList.add('uncorrect') : null
-    !areaValid ? document.getElementById("area").classList.add('uncorrect') : null
+    if(document.getElementById("detailFile") !== null){
+        !fileValid ? document.getElementById("detailFile").classList.add('uncorrect') : null
+        !fileLinkValid ? document.getElementById("fileLinkInput").classList.add('uncorrect') : null
+    }
+    if (nameValid && emailValid && phoneValid || nameValid && emailValid && phoneValid && (fileValid || fileLinkValid)){
+        let formData = new FormData(form);
 
-    return nameValid && emailValid && phoneValid && areaValid;
-}
+        for (let [name, value] of formData) {
+            console.log(`${name} = ${value}`); // key1=value1, потом key2=value2
+        }
+        fetch('php/send-form.php', {
+            method: "POST",
+            body: formData,
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            },
+        }).then(response => console.log(response));
+    }
+}, false);
+
 
 //check on submit contacts form end
-
-//check on submit detail form start
-function formCheckDetail() {
-    !nameValid ? document.getElementById("nameInput").classList.add('uncorrect') : null
-    !emailValid ? document.getElementById("emailInput").classList.add('uncorrect') : null
-    !phoneValid ? document.getElementById("phone").classList.add('uncorrect') : null
-    !fileValid ? document.getElementById("detailFile").classList.add('uncorrect') : null
-    !fileLinkValid ? document.getElementById("fileLinkInput").classList.add('uncorrect') : null
-
-    return nameValid && emailValid && phoneValid && (fileValid || fileLinkValid);
-}
-
-//check on submit detail form end
